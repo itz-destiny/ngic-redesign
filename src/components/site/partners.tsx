@@ -1,4 +1,5 @@
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { PARTNERS } from "@/lib/data";
 
 export function Partners() {
@@ -11,11 +12,11 @@ export function Partners() {
               Partners
             </span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Backed by government, academia and industry
-            </h2>
-          </Reveal>
+          <SplitText
+            as="h2"
+            text="Backed by government, academia and industry"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
         </div>
 
         <RevealGroup className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-3 lg:grid-cols-4">

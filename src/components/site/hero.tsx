@@ -1,24 +1,42 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/site/aurora-background";
 import { SITE } from "@/lib/data";
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+  const auroraY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-24 pb-16 bg-grain"
     >
-      <AuroraBackground />
+      <motion.div style={{ y: auroraY }} className="absolute inset-0">
+        <AuroraBackground />
+      </motion.div>
       <div
         aria-hidden
         className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0,transparent_calc(50%-0.5px),color-mix(in_oklch,var(--foreground),transparent_95%)_calc(50%-0.5px),color-mix(in_oklch,var(--foreground),transparent_95%)_calc(50%+0.5px),transparent_calc(50%+0.5px))] opacity-40"
       />
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center lg:px-8">
+      <motion.div
+        style={{ opacity: contentOpacity, y: contentY, scale: contentScale }}
+        className="relative mx-auto flex w-full max-w-7xl flex-col items-center px-6 text-center lg:px-8"
+      >
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,12 +94,13 @@ export function Hero() {
             Explore the Challenge
           </Button>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
+        style={{ opacity: contentOpacity }}
         className="relative mt-16 flex justify-center"
       >
         <a

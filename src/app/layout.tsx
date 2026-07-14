@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { CustomCursor } from "@/components/site/custom-cursor";
+import { ScrollProgress } from "@/components/site/scroll-progress";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <ScrollProgress />
           <CustomCursor />
           {children}
         </ThemeProvider>

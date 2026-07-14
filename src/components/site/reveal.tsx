@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 export function Reveal({
   children,
   delay = 0,
-  y = 24,
+  y = 40,
   className,
   once = true,
 }: {
@@ -17,11 +17,13 @@ export function Reveal({
   once?: boolean;
 }) {
   const variants: Variants = {
-    hidden: { opacity: 0, y },
+    hidden: { opacity: 0, y, scale: 0.97, filter: "blur(4px)" },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+      scale: 1,
+      filter: "blur(0px)",
+      transition: { duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
@@ -29,7 +31,7 @@ export function Reveal({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once, amount: 0.2 }}
+      viewport={{ once, amount: 0.25 }}
       variants={variants}
       className={className}
     >
@@ -41,7 +43,7 @@ export function Reveal({
 export function RevealGroup({
   children,
   className,
-  stagger = 0.08,
+  stagger = 0.09,
 }: {
   children: ReactNode;
   className?: string;
@@ -70,18 +72,19 @@ export function RevealGroup({
 export function RevealItem({
   children,
   className,
-  y = 20,
+  y = 32,
 }: {
   children: ReactNode;
   className?: string;
   y?: number;
 }) {
   const item: Variants = {
-    hidden: { opacity: 0, y },
+    hidden: { opacity: 0, y, scale: 0.96 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      scale: 1,
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
     },
   };
 

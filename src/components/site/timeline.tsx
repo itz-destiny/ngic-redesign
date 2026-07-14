@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { TIMELINE } from "@/lib/data";
 
 export function Timeline() {
@@ -23,11 +24,11 @@ export function Timeline() {
               Roadmap
             </span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              The 2026 edition, at a glance
-            </h2>
-          </Reveal>
+          <SplitText
+            as="h2"
+            text="The 2026 edition, at a glance"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
         </div>
 
         <div ref={ref} className="relative mt-20">

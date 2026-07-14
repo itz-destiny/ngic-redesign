@@ -1,5 +1,6 @@
 import { FileText, Users, GraduationCap, Trophy } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 
 const STEPS = [
   {
@@ -42,11 +43,11 @@ export function TheChallenge() {
               How it works
             </span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              From idea to international investment
-            </h2>
-          </Reveal>
+          <SplitText
+            as="h2"
+            text="From idea to international investment"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
         </div>
 
         <RevealGroup className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-4">

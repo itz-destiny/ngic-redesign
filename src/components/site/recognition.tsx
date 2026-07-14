@@ -1,5 +1,6 @@
 import { Globe, Coins, Tv, Building2 } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { RECOGNITION } from "@/lib/data";
 
 const ICONS = [Globe, Coins, Tv, Building2];
@@ -14,11 +15,11 @@ export function Recognition() {
               2025 Edition
             </span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Recognition on the world stage
-            </h2>
-          </Reveal>
+          <SplitText
+            as="h2"
+            text="Recognition on the world stage"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
         </div>
 
         <RevealGroup className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2">

@@ -1,5 +1,6 @@
 import { Bot, Leaf, Radio, CloudRain, Sparkles, Cpu, Plus } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { FOCUS_AREAS, FOCUS_AREAS_EXTRA_COUNT } from "@/lib/data";
 
 const ICONS = { Bot, Leaf, Radio, CloudRain, Sparkles, Cpu } as const;
@@ -15,11 +16,11 @@ export function FocusAreas() {
                 Focus Areas
               </span>
             </Reveal>
-            <Reveal delay={0.05}>
-              <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-                11 thematic tracks, one national mission
-              </h2>
-            </Reveal>
+            <SplitText
+              as="h2"
+              text="11 thematic tracks, one national mission"
+              className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+            />
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-sm text-muted-foreground">

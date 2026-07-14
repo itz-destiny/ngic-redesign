@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Landmark, Globe2, Handshake } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { SITE } from "@/lib/data";
 
 const PILLARS = [
@@ -36,11 +37,11 @@ export function About() {
               About the Challenge
             </span>
           </Reveal>
-          <Reveal delay={0.05}>
-            <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-              Uniting academia, government and private investors
-            </h2>
-          </Reveal>
+          <SplitText
+            as="h2"
+            text="Uniting academia, government and private investors"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               {SITE.fullName} ({SITE.name}) is Nigeria&apos;s leading innovation

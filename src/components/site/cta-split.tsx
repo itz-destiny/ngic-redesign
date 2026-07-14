@@ -1,5 +1,6 @@
 import { ArrowUpRight, Rocket, Building } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
+import { SplitText } from "@/components/site/split-text";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/data";
 
@@ -7,14 +8,18 @@ export function CtaSplit() {
   return (
     <section id="apply" className="border-t border-border/60 py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-            Get Involved
-          </span>
-          <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-            Where do you fit in?
-          </h2>
-        </Reveal>
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              Get Involved
+            </span>
+          </Reveal>
+          <SplitText
+            as="h2"
+            text="Where do you fit in?"
+            className="mt-4 font-heading text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl"
+          />
+        </div>
 
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Reveal delay={0.05} className="hover-lift group relative overflow-hidden rounded-3xl border border-border/60 bg-card p-10">
